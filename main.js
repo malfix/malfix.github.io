@@ -3,7 +3,7 @@
 
   const STORAGE_KEY = "malfix.lang";
   const LANGUAGES = ["it", "en"];
-  const FALLBACK = "it";
+  const FALLBACK = "en";
 
   const COPY = {
     it: {
