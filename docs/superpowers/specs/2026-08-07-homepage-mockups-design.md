@@ -118,10 +118,37 @@ Rendering headless in Chrome di tutte e dieci le varianti a 1440×900 e di quatt
 - Lo shader WebGL compila e disegna anche su SwiftShader (senza GPU).
 - `×5` verificato su Flash Sheet, Departure Board, Stack e Index.
 
+## Esito: variante 1 promossa a index.html
+
+Scelta la **1, Terminal Roster**. `index.html` la implementa, con tre scostamenti
+deliberati rispetto al mockup:
+
+- **Contenuto statico anziché generato da JavaScript.** Nel file di confronto tutte
+  le varianti erano costruite a runtime; la pagina pubblica ha il testo direttamente
+  nel markup, con le due lingue negli attributi `data-it` / `data-en`. Funziona a
+  JavaScript spento, è indicizzabile e non mostra un istante di pagina vuota.
+  Aggiungere un progetto resta banale: si copia il blocco `.row` più le due righe
+  che lo seguono.
+- **Lingua persistente.** All'apertura vince il parametro `?lang=`, poi la scelta
+  salvata in `localStorage`, poi la lingua del browser. Il cambio aggiorna
+  `<html lang>`, il titolo e la meta description senza ricaricare.
+- **Animazione additiva.** Le tre righe di comando si scrivono da sinistra a destra
+  via `clip-path` — non via `width` in `ch`, perché il glifo `➜` non occupa
+  esattamente un carattere e troncava la fine dei comandi. Tutto è già nello stato
+  finale se l'utente ha `prefers-reduced-motion` o se JavaScript non parte.
+
+Aggiunti inoltre: LinkedIn fra i contatti, favicon SVG inline, tag Open Graph e
+`assets/og.png` (1200×630, generata dalla pagina stessa), canonical. I link a
+privacy e supporto della vecchia pagina sono conservati sotto il progetto.
+
+Verifica: desktop e mobile, italiano e inglese, con e senza JavaScript — nessun
+errore in console, nessun overflow orizzontale, tutti e sette i link presenti,
+il toggle cambia lingua, URL e metadati.
+
 ## Cosa resta aperto
 
-- La scelta della variante da promuovere a `index.html`.
-- Frase di posizionamento e headline editoriale sono una prima stesura, da rivedere.
-- Nessun social oltre email e GitHub: LinkedIn e X vanno aggiunti se servono.
+- Frase di posizionamento e headline sono una prima stesura, da rivedere con calma.
+- `mockups.html` resta nel repo come riferimento: è `noindex`, ma può essere
+  eliminato una volta che la direzione è consolidata.
 - Gli screenshot provengono dalla scheda App Store (900×1948) e sono salvati in
-  `assets/tattooo/`; se ne esistono di migliori vanno sostituiti lì.
+  `assets/tattooo/`; li usa solo `mockups.html`, non la homepage.

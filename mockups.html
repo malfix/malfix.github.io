@@ -113,7 +113,9 @@ const LINKS = {
   email:  "mailto:malfara.labs@gmail.com",
   emailL: "malfara.labs@gmail.com",
   github: "https://github.com/malfix",
-  githubL:"github.com/malfix"
+  githubL:"github.com/malfix",
+  linkedin:"https://www.linkedin.com/in/emanuelemalfara/",
+  linkedinL:"linkedin.com/in/emanuelemalfara"
 };
 
 const TATTOOO = {
@@ -263,6 +265,7 @@ const V_TERMINAL = {
     const c = el("div", { class:"tm-out" });
     c.append(el("div", null, [ el("span",{class:"tm-dim",text:"email  "}), el("a",{class:"tm-a",href:LINKS.email,text:LINKS.emailL}) ]));
     c.append(el("div", null, [ el("span",{class:"tm-dim",text:"github "}), el("a",{class:"tm-a",href:LINKS.github,target:"_blank",rel:"noopener",text:LINKS.githubL}) ]));
+    c.append(el("div", null, [ el("span",{class:"tm-dim",text:"linked "}), el("a",{class:"tm-a",href:LINKS.linkedin,target:"_blank",rel:"noopener",text:LINKS.linkedinL}) ]));
     w.append(c);
 
     w.append(line("~ ", `lang --set ${state.lang === "it" ? "en" : "it"}`));
@@ -396,7 +399,8 @@ const V_FLASH = {
 
     w.append(el("div", { class:"fs-foot" }, [
       el("a", { class:"fs-chip", href:LINKS.email, text:LINKS.emailL }),
-      el("a", { class:"fs-chip", href:LINKS.github, target:"_blank", rel:"noopener", text:LINKS.githubL })
+      el("a", { class:"fs-chip", href:LINKS.github, target:"_blank", rel:"noopener", text:LINKS.githubL }),
+      el("a", { class:"fs-chip", href:LINKS.linkedin, target:"_blank", rel:"noopener", text:LINKS.linkedinL })
     ]));
   }
 };
@@ -493,7 +497,8 @@ const V_WINDOWS = {
       el("p", { style:"margin:6px 0 0", text:t(COPY.role) }),
       el("p", { class:"k", style:"margin-top:12px", text:t(COPY.contact) }),
       el("p", { style:"margin:2px 0 0" }, [ el("a", { href:LINKS.email, text:LINKS.emailL }) ]),
-      el("p", { style:"margin:2px 0 0" }, [ el("a", { href:LINKS.github, target:"_blank", rel:"noopener", text:LINKS.githubL }) ])
+      el("p", { style:"margin:2px 0 0" }, [ el("a", { href:LINKS.github, target:"_blank", rel:"noopener", text:LINKS.githubL }) ]),
+      el("p", { style:"margin:2px 0 0" }, [ el("a", { href:LINKS.linkedin, target:"_blank", rel:"noopener", text:LINKS.linkedinL }) ])
     ]});
 
     projects().forEach((p, i) => {
@@ -596,7 +601,8 @@ const V_INDEX = {
 
     w.append(el("div", { class:"ed-foot" }, [
       el("a", { href:LINKS.email, text:LINKS.emailL }),
-      el("a", { href:LINKS.github, target:"_blank", rel:"noopener", text:LINKS.githubL })
+      el("a", { href:LINKS.github, target:"_blank", rel:"noopener", text:LINKS.githubL }),
+      el("a", { href:LINKS.linkedin, target:"_blank", rel:"noopener", text:LINKS.linkedinL })
     ]));
   }
 };
@@ -700,6 +706,7 @@ const V_BOARD = {
     w.append(el("div", { class:"bd-foot" }, [
       el("a", { href:LINKS.email, text:LINKS.emailL }),
       el("a", { href:LINKS.github, target:"_blank", rel:"noopener", text:LINKS.githubL }),
+      el("a", { href:LINKS.linkedin, target:"_blank", rel:"noopener", text:LINKS.linkedinL }),
       el("button", { text:state.lang === "it" ? "ENGLISH" : "ITALIANO", onclick:toggleLang })
     ]));
   }
@@ -785,6 +792,7 @@ const V_MARQUEE = {
     wrap.append(el("div", { class:"mq-foot" }, [
       el("a", { href:LINKS.email, text:LINKS.emailL }),
       el("a", { href:LINKS.github, target:"_blank", rel:"noopener", text:LINKS.githubL }),
+      el("a", { href:LINKS.linkedin, target:"_blank", rel:"noopener", text:LINKS.linkedinL }),
       el("button", { text:state.lang === "it" ? "EN" : "IT", onclick:toggleLang })
     ]));
   }
@@ -854,6 +862,7 @@ const V_SPOTLIGHT = {
     w.append(el("div", { class:"sp-foot" }, [
       el("a", { href:LINKS.email, text:LINKS.emailL }),
       el("a", { href:LINKS.github, target:"_blank", rel:"noopener", text:LINKS.githubL }),
+      el("a", { href:LINKS.linkedin, target:"_blank", rel:"noopener", text:LINKS.linkedinL }),
       el("button", { text:state.lang === "it" ? "English" : "Italiano", onclick:toggleLang })
     ]));
 
@@ -962,7 +971,8 @@ const V_STACK = {
     wrap.append(el("div", { class:"st-nav" }, [ prev, dots, next, counter ]));
     wrap.append(el("div", { class:"st-foot" }, [
       el("a", { href:LINKS.email, text:LINKS.emailL }),
-      el("a", { href:LINKS.github, target:"_blank", rel:"noopener", text:LINKS.githubL })
+      el("a", { href:LINKS.github, target:"_blank", rel:"noopener", text:LINKS.githubL }),
+      el("a", { href:LINKS.linkedin, target:"_blank", rel:"noopener", text:LINKS.linkedinL })
     ]));
 
     let idx = 0, drag = 0, dragging = false, startX = 0;
@@ -1079,7 +1089,8 @@ const V_INK = {
     w.append(el("div", { class:"ik-foot" }, [
       el("span", { text:t(COPY.move) + " →" }),
       el("a", { href:LINKS.email, text:LINKS.emailL }),
-      el("a", { href:LINKS.github, target:"_blank", rel:"noopener", text:LINKS.githubL })
+      el("a", { href:LINKS.github, target:"_blank", rel:"noopener", text:LINKS.githubL }),
+      el("a", { href:LINKS.linkedin, target:"_blank", rel:"noopener", text:LINKS.linkedinL })
     ]));
 
     if (!gl) return;
@@ -1318,7 +1329,8 @@ const V_SKIN = {
 
     w.append(el("div", { class:"sk-foot" }, [
       el("a", { href:LINKS.email, text:LINKS.emailL }),
-      el("a", { href:LINKS.github, target:"_blank", rel:"noopener", text:LINKS.githubL })
+      el("a", { href:LINKS.github, target:"_blank", rel:"noopener", text:LINKS.githubL }),
+      el("a", { href:LINKS.linkedin, target:"_blank", rel:"noopener", text:LINKS.linkedinL })
     ]));
 
     let W = 0, H = 0, dpr = 1;
