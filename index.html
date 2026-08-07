@@ -12,192 +12,52 @@
 <meta property="og:title" content="Emanuele Malfarà — product engineer">
 <meta property="og:description" content="Product engineer. Un prodotto alla volta.">
 <meta name="twitter:card" content="summary">
-<style>
-  :root {
-    --ink:#0b0a0d;
-    --lime:#d6f92b;
-    --text:#d8d5d0;
-    --dim:#6d6a66;
-    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;
-    color-scheme:dark;
-  }
-  * { box-sizing:border-box; }
-  html { -webkit-text-size-adjust:100%; }
-  body {
-    margin:0; min-height:100svh; display:flex; align-items:center;
-    padding:clamp(20px,5vw,64px);
-    background:var(--ink); color:var(--text);
-    font:14px/1.85 var(--mono);
-    -webkit-font-smoothing:antialiased;
-    position:relative; overflow-x:hidden;
-  }
-  /* faint scanlines, the only decoration on the page */
-  body::after {
-    content:""; position:fixed; inset:0; pointer-events:none; z-index:1;
-    background:repeating-linear-gradient(0deg,rgba(255,255,255,.028) 0 1px,transparent 1px 3px);
-  }
-  main { width:100%; max-width:78ch; margin:0 auto; position:relative; z-index:2; }
-
-  h1 {
-    font:700 clamp(30px,7vw,52px)/1.05 var(--mono);
-    letter-spacing:-.02em; color:#fff; margin:0 0 6px;
-  }
-  h1 em { font-style:normal; background:var(--lime); color:var(--ink); padding:0 .18em; }
-  .role { color:var(--dim); margin:0 0 26px; }
-
-  .cmd { white-space:nowrap; }
-  .cmd .p { color:var(--lime); }
-  .cmd .h { color:var(--dim); }
-  .cmd .c { color:#fff; }
-
-  .out { margin:2px 0 26px; }
-
-  .row {
-    display:grid; grid-template-columns:2.5ch 1fr auto; gap:0 1.5ch; align-items:baseline;
-    margin:0 -8px; padding:3px 8px; border-radius:3px;
-    text-decoration:none; color:inherit;
-  }
-  .row .nm { color:#fff; font-weight:700; }
-  .row .mt { color:var(--dim); white-space:nowrap; }
-  .row:hover, .row:focus-visible { background:var(--lime); color:var(--ink); outline:none; }
-  .row:hover .nm, .row:focus-visible .nm,
-  .row:hover .mt, .row:focus-visible .mt,
-  .row:hover .dot, .row:focus-visible .dot { color:var(--ink); }
-  .dot { color:var(--lime); }
-
-  .tag { color:#8f8c88; padding-left:4ch; }
-  .sub { padding-left:4ch; display:flex; flex-wrap:wrap; gap:0 1.5ch; }
-
-  a.lnk {
-    color:var(--lime); text-decoration:none;
-    border-bottom:1px dashed rgba(214,249,43,.4);
-  }
-  a.lnk:hover, a.lnk:focus-visible {
-    background:var(--lime); color:var(--ink); border-color:transparent; outline:none;
-  }
-  .kv { display:grid; grid-template-columns:8ch 1fr; gap:0 1ch; }
-  .kv dt { color:var(--dim); }
-  .kv dd { margin:0; min-width:0; overflow-wrap:anywhere; }
-
-  .caret {
-    display:inline-block; width:9px; height:1.05em; background:var(--lime);
-    vertical-align:-2px;
-  }
-
-  @media (max-width:560px) {
-    body { align-items:flex-start; }
-    .row { grid-template-columns:2.5ch 1fr; }
-    .row .mt { grid-column:2; }
-    .tag, .sub { padding-left:2.5ch; }
-    /* the label column has to clear the longest key, "linkedin" */
-    .kv { grid-template-columns:9ch 1fr; }
-  }
-
-  /* Motion is additive: with reduced motion, or with JS off, everything is
-     already in its final state and nothing below ever runs. */
-  @media (prefers-reduced-motion: no-preference) {
-    /* Typed by revealing the line left to right. Using clip-path instead of an
-       animated width means the glyph advance never has to be guessed. */
-    .anim .cmd { clip-path:inset(0 100% 0 0); animation:type .5s steps(18) both var(--d,0s); }
-    .anim .fade { opacity:0; animation:fade .45s ease-out both var(--d,0s); }
-    .anim .caret { animation:blink 1.05s steps(1) infinite; }
-    @keyframes type { to { clip-path:inset(0 -.2ch 0 0); } }
-    @keyframes fade { to { opacity:1; } }
-    @keyframes blink { 50% { opacity:0; } }
-  }
-</style>
+<link rel="stylesheet" href="styles.css">
+<script src="main.js" defer></script>
 </head>
 <body>
 <main>
 
-  <h1 class="fade" style="--d:.05s">malfar<em>à</em></h1>
-  <p class="role fade" style="--d:.15s"
+  <h1 class="fade">malfar<em>à</em></h1>
+  <p class="role fade"
      data-it="Product engineer. Un prodotto alla volta."
      data-en="Product engineer. One product at a time."
   >Product engineer. Un prodotto alla volta.</p>
 
-  <div class="cmd" style="--d:.5s"><span class="p">➜ </span><span class="h">~ </span><span class="c">ls projects/</span></div>
-  <div class="out">
-    <a class="row fade" style="--d:1.0s" href="https://apps.apple.com/us/app/tattooo/id6795151590">
-      <span class="dot">▸</span>
-      <span class="nm">tattooo</span>
-      <span class="mt">iOS · 2026</span>
+  <div class="command-line projects-command"><span class="prompt" aria-hidden="true">➜ </span><span class="home" aria-hidden="true">~ </span><span class="command">ls projects/</span></div>
+  <div class="output">
+    <a class="project fade" href="https://apps.apple.com/us/app/tattooo/id6795151590">
+      <span class="marker" aria-hidden="true">▸</span>
+      <span class="name">tattooo</span>
+      <span class="meta">iOS · 2026</span>
     </a>
-    <p class="tag fade" style="--d:1.1s" data-it="Prova un tatuaggio sulla tua pelle prima che sia per sempre." data-en="Try a tattoo on your skin before it is permanent."
+    <p class="tagline fade"
+       data-it="Prova un tatuaggio sulla tua pelle prima che sia per sempre."
+       data-en="Try a tattoo on your skin before it is permanent."
     >Prova un tatuaggio sulla tua pelle prima che sia per sempre.</p>
-    <p class="sub fade" style="--d:1.2s">
-      <a class="lnk" href="https://malfix.github.io/tattooo-legal/privacy.html" data-it="privacy" data-en="privacy">privacy</a>
-      <a class="lnk" href="https://malfix.github.io/tattooo-legal/support.html" data-it="supporto" data-en="support">supporto</a>
+    <p class="legal fade">
+      <a class="link" href="https://malfix.github.io/tattooo-legal/privacy.html" data-it="privacy" data-en="privacy">privacy</a>
+      <a class="link" href="https://malfix.github.io/tattooo-legal/support.html" data-it="supporto" data-en="support">supporto</a>
     </p>
   </div>
 
-  <div class="cmd" style="--d:1.45s"><span class="p">➜ </span><span class="h">~ </span><span class="c">cat contact.txt</span></div>
-  <dl class="out kv fade" style="--d:1.9s">
+  <div class="command-line contacts-command"><span class="prompt" aria-hidden="true">➜ </span><span class="home" aria-hidden="true">~ </span><span class="command">cat contact.txt</span></div>
+  <dl class="output contacts fade">
     <dt>email</dt>
-    <dd><a class="lnk" href="mailto:malfara.labs@gmail.com">malfara.labs@gmail.com</a></dd>
+    <dd><a class="link" href="mailto:malfara.labs@gmail.com">malfara.labs@gmail.com</a></dd>
     <dt>github</dt>
-    <dd><a class="lnk" href="https://github.com/malfix">github.com/malfix</a></dd>
+    <dd><a class="link" href="https://github.com/malfix">github.com/malfix</a></dd>
     <dt>linkedin</dt>
-    <dd><a class="lnk" href="https://www.linkedin.com/in/emanuelemalfara/">linkedin.com/in/emanuelemalfara</a></dd>
+    <dd><a class="link" href="https://www.linkedin.com/in/emanuelemalfara/">linkedin.com/in/emanuelemalfara</a></dd>
   </dl>
 
-  <div class="cmd" style="--d:2.1s"><span class="p">➜ </span><span class="h">~ </span><span class="c">lang --set <span id="other">en</span></span></div>
-  <p class="out fade" style="--d:2.5s">
-    <a class="lnk" id="switch" href="?lang=en" data-it="switch to english" data-en="passa all'italiano">switch to english</a>
+  <div class="command-line language-command"><span class="prompt" aria-hidden="true">➜ </span><span class="home" aria-hidden="true">~ </span><span class="command">lang --set <span id="other">en</span></span></div>
+  <p class="output language-output fade">
+    <a class="link" id="switch" href="?lang=en" data-it="switch to english" data-en="passa all'italiano">switch to english</a>
   </p>
 
-  <div class="fade" style="--d:2.7s"><span class="p" style="color:var(--lime)">➜ </span><span class="caret"></span></div>
+  <div class="prompt-line fade"><span class="prompt" aria-hidden="true">➜ </span><span class="caret" aria-hidden="true"></span></div>
 
 </main>
-
-<script>
-(function () {
-  const STORE = "malfix.lang";
-  const html = document.documentElement;
-
-  function pick() {
-    const q = new URLSearchParams(location.search).get("lang");
-    if (q === "it" || q === "en") return q;
-    try { const s = localStorage.getItem(STORE); if (s === "it" || s === "en") return s; } catch (e) {}
-    return (navigator.language || "it").toLowerCase().startsWith("it") ? "it" : "en";
-  }
-
-  const COPY = {
-    it: { title:"Emanuele Malfarà — product engineer",
-          desc:"Product engineer. Un prodotto alla volta." },
-    en: { title:"Emanuele Malfarà — product engineer",
-          desc:"Product engineer. One product at a time." }
-  };
-
-  function apply(lang) {
-    html.lang = lang;
-    for (const n of document.querySelectorAll("[data-it]")) {
-      const v = n.getAttribute("data-" + lang);
-      if (v) n.textContent = v;
-    }
-    document.title = COPY[lang].title;
-    const d = document.querySelector('meta[name="description"]');
-    if (d) d.setAttribute("content", COPY[lang].desc);
-    const other = lang === "it" ? "en" : "it";
-    document.getElementById("other").textContent = other;
-    document.getElementById("switch").setAttribute("href", "?lang=" + other);
-    try { localStorage.setItem(STORE, lang); } catch (e) {}
-  }
-
-  let lang = pick();
-  apply(lang);
-
-  /* Animate only on the first paint. Toggling the language should feel like
-     the page answering, not like it reloading. */
-  document.body.classList.add("anim");
-
-  document.getElementById("switch").addEventListener("click", function (e) {
-    e.preventDefault();
-    lang = lang === "it" ? "en" : "it";
-    apply(lang);
-    history.replaceState(null, "", lang === "it" ? location.pathname : "?lang=en");
-  });
-})();
-</script>
 </body>
 </html>
