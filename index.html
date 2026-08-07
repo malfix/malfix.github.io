@@ -1,27 +1,63 @@
 <!doctype html>
-<html lang="en">
+<html lang="it">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Emanuele Malfarà — Apps</title>
-<style>
-  :root { color-scheme: dark; }
-  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
-         background:#0d0d0f; color:#e8e6e3; font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
-  main { max-width:34rem; padding:2rem; }
-  h1 { font-size:1.5rem; margin:0 0 .5rem; }
-  p { margin:0 0 1rem; color:#a8a49f; }
-  a { color:#e8e6e3; }
-</style>
+<title>Emanuele Malfarà — product engineer</title>
+<meta name="description" content="Product engineer. Un prodotto alla volta.">
+<link rel="canonical" href="https://malfix.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230b0a0d'/%3E%3Cpath d='M9 8l11 8-11 8z' fill='%23d6f92b'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://malfix.github.io/">
+<meta property="og:title" content="Emanuele Malfarà — product engineer">
+<meta property="og:description" content="Product engineer. Un prodotto alla volta.">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="styles.css">
+<script src="main.js" defer></script>
 </head>
 <body>
 <main>
-  <h1>Tattooo</h1>
-  <p>On-device tattoo try-on for iOS. Photos never leave the phone.</p>
-  <p>
-    <a href="https://malfix.github.io/tattooo-legal/privacy.html">Privacy policy</a> ·
-    <a href="https://malfix.github.io/tattooo-legal/support.html">Support</a>
+
+  <h1 class="fade">malfar<em>à</em></h1>
+  <p class="role fade"
+     data-it="Product engineer. Un prodotto alla volta."
+     data-en="Product engineer. One product at a time."
+  >Product engineer. Un prodotto alla volta.</p>
+
+  <div class="command-line projects-command"><span class="prompt" aria-hidden="true">➜ </span><span class="home" aria-hidden="true">~ </span><span class="command">ls projects/</span></div>
+  <div class="output">
+    <a class="project fade" href="https://apps.apple.com/us/app/tattooo/id6795151590">
+      <span class="marker" aria-hidden="true">▸</span>
+      <span class="name">tattooo</span>
+      <span class="meta">iOS · 2026</span>
+    </a>
+    <p class="tagline fade"
+       data-it="Prova un tatuaggio sulla tua pelle prima che sia per sempre."
+       data-en="Try a tattoo on your skin before it is permanent."
+    >Prova un tatuaggio sulla tua pelle prima che sia per sempre.</p>
+    <p class="legal fade">
+      <a class="link" href="https://malfix.github.io/tattooo-legal/privacy.html" data-it="privacy" data-en="privacy">privacy</a>
+      <a class="link" href="https://malfix.github.io/tattooo-legal/support.html" data-it="supporto" data-en="support">supporto</a>
+    </p>
+  </div>
+
+  <div class="command-line contacts-command"><span class="prompt" aria-hidden="true">➜ </span><span class="home" aria-hidden="true">~ </span><span class="command">cat contact.txt</span></div>
+  <dl class="output contacts fade">
+    <dt>email</dt>
+    <dd><a class="link" href="mailto:malfara.labs@gmail.com">malfara.labs@gmail.com</a></dd>
+    <dt>github</dt>
+    <dd><a class="link" href="https://github.com/malfix">github.com/malfix</a></dd>
+    <dt>linkedin</dt>
+    <dd><a class="link" href="https://www.linkedin.com/in/emanuelemalfara/">linkedin.com/in/emanuelemalfara</a></dd>
+  </dl>
+
+  <div class="command-line language-command"><span class="prompt" aria-hidden="true">➜ </span><span class="home" aria-hidden="true">~ </span><span class="command">lang --set <span id="other">en</span></span></div>
+  <p class="output language-output fade">
+    <a class="link" id="switch" href="?lang=en" data-it="switch to english" data-en="passa all'italiano">switch to english</a>
   </p>
+
+  <div class="prompt-line fade"><span class="prompt" aria-hidden="true">➜ </span><span class="caret" aria-hidden="true"></span></div>
+
 </main>
 </body>
 </html>
