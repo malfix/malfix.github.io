@@ -3,7 +3,7 @@
 
   const STORAGE_KEY = "malfix.lang";
   const LANGUAGES = ["it", "en"];
-  const FALLBACK = "en";
+  const DEFAULT_LANGUAGE = "en";
 
   const COPY = {
     it: {
@@ -39,8 +39,8 @@
   }
 
   function fromBrowser() {
-    const preferred = (navigator.language || FALLBACK).toLowerCase();
-    return preferred.startsWith("it") ? "it" : "en";
+    const preferred = (navigator.language || "").toLowerCase();
+    return preferred.startsWith("it") ? "it" : DEFAULT_LANGUAGE;
   }
 
   function resolve() {
@@ -90,6 +90,6 @@
     event.preventDefault();
     current = counterpart(current);
     apply(current);
-    history.replaceState(null, "", current === FALLBACK ? location.pathname : "?lang=" + current);
+    history.replaceState(null, "", current === DEFAULT_LANGUAGE ? location.pathname : "?lang=" + current);
   });
 })();
